@@ -8,6 +8,6 @@ fn paths(x: u32, y: u32, mut cache: &mut[u64]) -> u64 {
     if cache[index] > 0 { return cache[index]; }
     if y == 0 { return 1; }
     if x == 0 { return 1; }
-    cache[index] = (0..x + 1).fold(0, |acc, n| acc + paths(n, y - 1, &mut cache));
+    cache[index] = paths(x, y - 1, &mut cache) + paths(x - 1, y, &mut cache);
     cache[index]
 }
