@@ -1,9 +1,3 @@
 fn main() {
-  let mut sum = 0;
-  for i in 1..1000 {
-    if i % 3 == 0 || i % 5 == 0 {
-      sum += i;
-    }
-  }
-  println!("{}", sum);
+  println!("{}", (1..1000).fold(0, |sum, n| sum + if n % 3 == 0 || n % 5 == 0 { n } else { 0 }));
 }
